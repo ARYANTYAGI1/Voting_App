@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const userSchema = new Schema(
     {
@@ -7,6 +8,8 @@ const userSchema = new Schema(
         password: { type: String, required: true },
         age: { type: String, required: true },
         userRole: { type: String, default: 'Voter', enum: ['Voter', 'Admin', 'Candidate'] },
+        userType: { type: Number, default: 1, enum: [1, 2, 3] }, // 1 -> Voter, 2 -> Admin, 3 -> Candidate
+        party: { type: Schema.Types.ObjectId, ref: 'Party' }, // Link to the Party if the user is a Candidate
         createdAt: { type: Date },
         updatedAt: { type: Date },
     },
@@ -14,11 +17,6 @@ const userSchema = new Schema(
         timestamps: true
     }
 );
-
-userSchema.pre('save', function(next){
-    this.updated_at = Date.now();
-    next();
-})
 
 const User = mongoose.model('User', userSchema);
 
