@@ -9,7 +9,7 @@ const userSchema = new Schema(
         age: { type: String, required: true },
         userRole: { type: String, default: 'Voter', enum: ['Voter', 'Admin', 'Candidate'] },
         userType: { type: Number, default: 1, enum: [1, 2, 3] }, // 1 -> Voter, 2 -> Admin, 3 -> Candidate
-        party: { type: Schema.Types.ObjectId, ref: 'Party' }, // Link to the Party if the user is a Candidate
+        // party: { type: Schema.Types.ObjectId, ref: 'Party' }, // Link to the Party if the user is a Candidate
         createdAt: { type: Date },
         updatedAt: { type: Date },
     },

@@ -4,8 +4,10 @@ const JWT_SECRET = process.env.JWT_SECRET || 'ARYAN#123';
 const generateToken = (user) => {
     const payload = {
         id: user._id,
-        name: user.name,
-        email: user.email,
+        fullName: user.fullName,
+        adhaarNumber: user.adhaarNumber,
+        userType: user.userType,
+        userRole: user.userRole
     };
     const options = {
         expiresIn: '1h',

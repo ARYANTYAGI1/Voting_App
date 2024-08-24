@@ -22,6 +22,9 @@ app.get('/', (req, res)=>{
 const userRoutes = require('./routes/user')
 app.use('/api', userRoutes )
 
+const partyRoutes = require('./routes/party')
+app.use('/api', partyRoutes )
+
 const PORT = process.env.PORT || 8000
 app.listen(PORT,()=>{
     console.log(`Server Started at ${PORT}`)
