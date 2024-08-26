@@ -25,6 +25,9 @@ app.use('/api', userRoutes )
 const partyRoutes = require('./routes/party')
 app.use('/api', partyRoutes )
 
+const voteRoutes = require('./routes/vote')
+app.use('/api', voteRoutes )
+
 const PORT = process.env.PORT || 8000
 app.listen(PORT,()=>{
     console.log(`Server Started at ${PORT}`)
